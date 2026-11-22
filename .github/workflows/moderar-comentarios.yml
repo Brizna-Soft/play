@@ -1,0 +1,38 @@
+# Filtro automático de comentarios de Brizna Geek (giscus = Discusiones de GitHub).
+# Cada comentario nuevo o editado se revisa: si trae insultos, groserías o enlaces, se oculta al instante
+# y queda marcado para que Sergio lo revise. La lista de palabras está en moderacion/palabras.txt.
+name: Moderar comentarios
+on:
+  discussion_comment:
+    types: [created, edited]
+  discussion:
+    types: [created, edited]
+permissions:
+  discussions: write
+  contents: read
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const c = context.payload.comment || context.payload.discussion;
+            if (!c || !c.node_id) return;
+            if ((c.user && c.user.login) === 'Brizna-Soft') return; // tus propios comentarios no se tocan
+            const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+              .replace(/[@4]/g, 'a').replace(/3/g, 'e').replace(/[1!]/g, 'i').replace(/0/g, 'o').replace(/\$/g, 's').replace(/(.)\1{2,}/g, '$1');
+            const palabras = fs.readFileSync('.github/palabras.txt', 'utf8').split(/\r?\n/).map(l => l.trim()).filter(l => l && !l.startsWith('#')).map(l => ({ p: norm(l.replace(/\*$/, '')), pre: l.endsWith('*') }));
+            const texto = norm(c.body);
+            const malas = palabras.filter(({ p, pre }) => new RegExp('(^|[^a-z])' + p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (pre ? '' : '([^a-z]|$)'), 'i').test(texto)).map(x => x.p);
+            const enlaces = /(https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|io|xyz|ru|top|link|ly|gg|me)\b)/i.test(c.body || '') && !/brizna-soft\.github\.io/i.test(c.body || '');
+            if (!malas.length && !enlaces) { core.info('Comentario limpio.'); return; }
+            const motivo = malas.length ? 'ABUSE' : 'SPAM';
+            if (context.payload.comment) {
+              await github.graphql('mutation($id:ID!,$m:ReportedContentClassifiers!){ minimizeComment(input:{subjectId:$id, classifier:$m}){ minimizedComment{ isMinimized } } }', { id: c.node_id, m: motivo });
+            }
+            core.notice(`Comentario ocultado (${motivo === 'ABUSE' ? 'groserías: ' + malas.join(', ') : 'trae enlaces'}).`);

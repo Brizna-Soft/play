@@ -1,0 +1,54 @@
+# Palabras que ocultan un comentario solo. Una por línea, sin tildes. Las líneas con # se ignoran.
+# Normal = palabra completa. Con * al final = cualquier palabra que empiece así (pendej* atrapa pendejo, pendejada).
+puta*
+puto*
+hijueputa*
+hijo de puta
+hdp
+mierda*
+verga*
+vrg
+pendej*
+malparid*
+cabron*
+culer*
+culo
+culos
+maricon*
+marica
+maricas
+mamaguev*
+mamada
+mamadas
+chinga*
+pinche*
+cono
+joder
+jodete
+gonorrea
+pija
+pijas
+cerote*
+zorra
+perra
+idiota*
+estupid*
+imbecil*
+retrasad*
+subnormal*
+babos*
+tarad*
+muerete
+te voy a matar
+violar*
+fuck*
+shit*
+bitch*
+asshole*
+nigg*
+porn*
+xxx
+casino*
+apuestas
+crypto*
+gana dinero
