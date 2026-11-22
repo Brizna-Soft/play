@@ -1,0 +1,182 @@
+:root{--fondo:#0f1412;--sup:#161d1a;--card:#1b2420;--borde:#2a3631;--txt:#e7efe9;--suave:#9fb0a7;--verde:#8bd450;--verde2:#6fb53a;--ambar:#f2c14e;--rojo:#e25b4f;--tg:#2aabee;--r:12px}
+*{box-sizing:border-box}
+html{background:var(--fondo)}
+body{margin:0;background:var(--fondo);color:var(--txt);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--verde)}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+h1,h2,h3{line-height:1.25}
+
+/* Encabezado */
+.top{background:var(--sup);border-bottom:1px solid var(--borde);position:sticky;top:0;z-index:5}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--txt)}
+.marca b{display:block;font-size:1.2rem}
+.marca small{display:block;color:var(--suave);font-size:.8rem}
+.logo-svg,.logo-img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.menu{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.menu>a:not(.tg-btn){color:var(--txt);text-decoration:none;padding:6px 10px;border-radius:8px}
+.menu>a:not(.tg-btn):hover{background:var(--card)}
+.catbar{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
+.catbar a{flex:none;color:var(--suave);text-decoration:none;font-size:.88rem;padding:4px 10px;border:1px solid var(--borde);border-radius:99px}
+.catbar a:hover{color:var(--fondo);background:var(--verde);border-color:var(--verde)}
+.tg-btn{display:inline-flex;align-items:center;gap:8px;background:var(--tg);color:#fff;text-decoration:none;font-weight:600;padding:8px 14px;border-radius:99px}
+.tg-btn svg{width:18px;height:18px}
+.tg-btn:hover{filter:brightness(1.1)}
+.tg-ancho{display:flex;justify-content:center}
+
+/* Columnas */
+main{padding-top:24px;padding-bottom:40px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.titulo-sec{font-size:1.4rem;margin:0 0 16px;border-left:4px solid var(--verde);padding-left:10px}
+.intro{background:linear-gradient(135deg,#1e2b23,#17201c);border:1px solid var(--borde);border-radius:var(--r);padding:20px;margin-bottom:22px}
+.intro h1{margin:0 0 6px}
+.intro p{color:var(--suave);margin:0 0 12px}
+
+/* Tarjetas */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--borde);border-radius:var(--r);overflow:hidden;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--verde)}
+.card a{color:inherit;text-decoration:none;display:block;height:100%}
+.card-img{aspect-ratio:460/215;background:#0b0f0d}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.sin-img{height:100%;display:grid;place-items:center;color:var(--suave);font-size:.85rem}
+.card-body{padding:10px 12px 12px}
+.card-body h2{font-size:1rem;margin:0 0 4px}
+.meta{color:var(--suave);font-size:.85rem;margin:0 0 8px}
+.tiendas-mini{display:flex;flex-wrap:wrap;gap:4px}
+.t{font-size:.72rem;padding:2px 7px;border-radius:6px;background:#2c3a33;color:var(--txt)}
+
+/* Paginación */
+.paginas{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:28px 0 0}
+.paginas a,.paginas span{min-width:40px;text-align:center;padding:8px 12px;border-radius:8px;border:1px solid var(--borde);text-decoration:none;color:var(--txt);background:var(--card)}
+.paginas a:hover{border-color:var(--verde)}
+.paginas .actual{background:var(--verde);color:#10180f;font-weight:700;border-color:var(--verde)}
+.paginas .gap{border:0;background:none}
+
+/* Barra lateral */
+.lateral{display:flex;flex-direction:column;gap:16px}
+.caja{background:var(--card);border:1px solid var(--borde);border-radius:var(--r);padding:14px}
+.caja h3{margin:0 0 10px;font-size:1rem;color:var(--ambar)}
+.caja p{margin:0 0 10px;color:var(--suave);font-size:.9rem}
+.caja-tg{border-color:#245a74;background:linear-gradient(135deg,#15303d,#1b2420)}
+.buscador{display:flex;gap:6px}
+.buscador input{flex:1;min-width:0}
+.buscador.grande{margin-bottom:20px}
+.lista-cat,.recientes{list-style:none;margin:0;padding:0}
+.lista-cat li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--borde)}
+.lista-cat li:last-child{border:0}
+.lista-cat a{color:var(--txt);text-decoration:none}
+.lista-cat a:hover{color:var(--verde)}
+.lista-cat span{color:var(--suave);font-size:.85rem}
+.recientes li{margin-bottom:8px}
+.recientes a{display:flex;gap:10px;align-items:center;color:var(--txt);text-decoration:none;font-size:.9rem}
+.recientes img{width:72px;height:34px;object-fit:cover;border-radius:6px;flex:none}
+.vacio{color:var(--suave)}
+
+/* Ficha del juego */
+.ficha{background:var(--card);border:1px solid var(--borde);border-radius:var(--r);padding:20px;margin-bottom:24px}
+.ficha h1{margin:12px 0 4px}
+.ficha h2{font-size:1.15rem;color:var(--ambar);margin:24px 0 10px}
+.ficha-portada{width:100%;border-radius:10px;display:block}
+.donde{background:var(--sup);border:1px solid var(--borde);border-radius:10px;padding:4px 16px 14px;margin-top:16px}
+.botones-tienda{display:flex;flex-wrap:wrap;gap:10px}
+.tienda{display:inline-block;padding:11px 18px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;background:#3a4a42}
+.tienda:hover{filter:brightness(1.15)}
+.nota{font-size:.82rem;color:var(--suave);margin:10px 0 0}
+.t-steam{background:#1b2838;color:#c7d5e0}.t-epic{background:#313131;color:#fff}.t-gog{background:#86328a;color:#fff}.t-microsoft{background:#0067b8;color:#fff}.t-xbox{background:#107c10;color:#fff}.t-ea{background:#c8102e;color:#fff}.t-ubisoft{background:#0062d6;color:#fff}.t-battlenet{background:#148eff;color:#fff}.t-itch{background:#fa5c5c;color:#fff}.t-humble{background:#cc2929;color:#fff}.t-rockstar{background:#fcaf17;color:#111}.t-amazon{background:#ff9900;color:#111}.t-oficial{background:var(--verde2);color:#0d140c}
+.tienda.t-steam{border:1px solid #66c0f4}
+.capturas{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.capturas img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block}
+.reqs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.reqs{grid-template-columns:1fr}}
+.reqs>div{background:var(--sup);border:1px solid var(--borde);border-radius:10px;padding:4px 14px}
+.reqs h3{font-size:.95rem}
+.ficha-tg{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border:1px solid #245a74;border-radius:10px;padding:14px;margin-top:24px}
+.ficha-tg p{margin:2px 0 0;color:var(--suave)}
+.aviso{background:#3b3015;border:1px solid var(--ambar);color:var(--ambar);padding:10px 14px;border-radius:10px}
+
+/* Pie */
+.pie{background:var(--sup);border-top:1px solid var(--borde);padding:24px 0 14px}
+.pie-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.pie p{color:var(--suave);margin:6px 0 0;max-width:520px;font-size:.9rem}
+.pie-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pie-links>a:not(.tg-btn){color:var(--txt)}
+.pie-final{color:var(--suave);font-size:.8rem;margin-top:16px;padding-top:12px;border-top:1px solid var(--borde)}
+
+/* Formularios */
+input,select,textarea{font:inherit;color:var(--txt);background:#0f1513;border:1px solid var(--borde);border-radius:8px;padding:9px 11px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--verde);border-color:var(--verde)}
+button,.btn{font:inherit;font-weight:600;cursor:pointer;border:0;border-radius:8px;padding:9px 16px;background:var(--verde);color:#10180f;text-decoration:none;display:inline-block}
+button:hover,.btn:hover{filter:brightness(1.1)}
+.gris{background:#33413a;color:var(--txt)}
+.rojo{background:var(--rojo);color:#fff}
+button.enlace{background:none;color:var(--suave);padding:6px 0}
+
+/* Panel */
+.adm{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+.adm-nav{background:var(--sup);border-right:1px solid var(--borde);padding:16px;display:flex;flex-direction:column;gap:2px}
+.adm-nav .marca{margin-bottom:14px}
+.adm-nav>a:not(.marca){color:var(--txt);text-decoration:none;padding:8px 10px;border-radius:8px}
+.adm-nav>a:not(.marca):hover{background:var(--card)}
+.adm-main{padding:24px;max-width:960px;width:100%}
+.adm-main.solo{grid-column:1/-1;margin:40px auto;max-width:480px}
+@media (max-width:760px){.adm{grid-template-columns:1fr}.adm-nav{flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--borde)}.adm-nav .marca{width:100%}}
+.formulario{display:flex;flex-direction:column;gap:14px}
+.formulario label{display:flex;flex-direction:column;gap:5px;font-weight:600}
+.formulario label small,.ayuda{font-weight:400;color:var(--suave);font-size:.85rem}
+.ayuda{margin:0 0 8px}
+fieldset{border:1px solid var(--borde);border-radius:10px;padding:12px 14px;margin:0}
+legend{font-weight:700;padding:0 6px;color:var(--ambar)}
+.checks{display:flex;flex-wrap:wrap;gap:6px 16px}
+.formulario label.check,.formulario label.btn{flex-direction:row;align-items:center;font-weight:400;gap:6px}
+.formulario label.btn{display:inline-flex;margin-top:8px;font-weight:600}
+.check input{width:auto}
+.subir{display:flex;gap:8px;align-items:flex-start}
+.subir label.btn{margin-top:0;flex:none}
+.previa{max-width:320px;border-radius:8px;margin-top:10px;display:block}
+.previa[hidden]{display:none}
+.previa.chica{max-width:80px}
+.fila-enlace{display:grid;grid-template-columns:200px 1fr auto;gap:8px;margin-bottom:8px}
+@media (max-width:640px){.fila-enlace{grid-template-columns:1fr}}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.dos{grid-template-columns:1fr}}
+.barra-guardar{display:flex;gap:8px;flex-wrap:wrap;position:sticky;bottom:0;background:var(--fondo);padding:12px 0;border-top:1px solid var(--borde)}
+.angosto{max-width:420px}
+.tabs{display:flex;gap:6px;margin:16px 0;flex-wrap:wrap}
+.tabs a{padding:7px 12px;border-radius:8px;border:1px solid var(--borde);color:var(--txt);text-decoration:none}
+.tabs a.activo{background:var(--verde);color:#10180f;border-color:var(--verde);font-weight:700}
+.tabla{width:100%;border-collapse:collapse}
+.tabla td{padding:10px 8px;border-bottom:1px solid var(--borde);vertical-align:middle}
+.tabla small{color:var(--suave)}
+.mini{width:92px;height:43px;object-fit:cover;border-radius:6px;display:block}
+.acciones{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.acciones .btn,.acciones button{padding:6px 12px;font-size:.9rem}
+.en-linea{display:inline-flex;gap:6px;align-items:center;margin:0}
+.en-linea input{width:auto;min-width:220px}
+.caja-adm{background:var(--card);border:1px solid var(--borde);border-radius:var(--r);padding:16px;margin-bottom:18px}
+.caja-adm h2{margin:0;font-size:1.1rem}
+.ok{background:#1f3a1d;border:1px solid var(--verde2);color:#c9f0a8;padding:10px 14px;border-radius:10px}
+.error{background:#3a1d1b;border:1px solid var(--rojo);color:#ffd0cb;padding:10px 14px;border-radius:10px;margin-bottom:14px}
+.error ul{margin:6px 0 0;padding-left:20px}
+/* Películas */
+.menu>a.activo{color:var(--verde);font-weight:700}
+.grid.pelis{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.card-img{position:relative}
+.card-img.poster{aspect-ratio:2/3}
+.anio{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.75);color:var(--ambar);font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:6px}
+.recientes.pelis img{width:40px;height:60px}
+.ficha-peli{position:relative;overflow:hidden}
+.fondo-peli{position:absolute;inset:0 0 auto 0;width:100%;height:340px;object-fit:cover;opacity:.18;mask-image:linear-gradient(#000 40%,transparent);-webkit-mask-image:linear-gradient(#000 40%,transparent)}
+.peli-cab{position:relative;display:flex;gap:20px;align-items:flex-start}
+.peli-poster{width:200px;border-radius:10px;flex:none;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+@media (max-width:640px){.peli-cab{flex-direction:column}.peli-poster{width:160px}}
+.ficha-peli>section,.ficha-peli>.donde{position:relative}
+.suave{color:var(--suave);font-weight:400}
+.p-netflix{background:#e50914;color:#fff}.p-prime{background:#00a8e1;color:#04121a}.p-disney{background:#113ccf;color:#fff}.p-hbomax{background:#5822b4;color:#fff}.p-appletv{background:#000;color:#fff;border:1px solid #555}.p-googletv{background:#34a853;color:#fff}.p-youtube{background:#ff0000;color:#fff}.p-paramount{background:#0064ff;color:#fff}.p-vix{background:#ff5a00;color:#fff}.p-pluto{background:#fff200;color:#111}.p-crunchyroll{background:#f47521;color:#111}.p-mubi{background:#001489;color:#fff}.p-claro{background:#da291c;color:#fff}.p-oficial{background:var(--verde2);color:#0d140c}
+.mini-poster{width:43px;height:64px}
+.previa.chica-poster{max-width:140px}
+.log{background:#0b0f0d;border:1px solid var(--borde);border-radius:8px;padding:10px;font-size:.8rem;white-space:pre-wrap;max-height:160px;overflow:auto}
+.verde{color:var(--verde)}
+code{background:#0b0f0d;padding:2px 6px;border-radius:6px;word-break:break-all}
