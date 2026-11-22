@@ -250,5 +250,7 @@ video.trailer{width:100%;border-radius:8px;background:#000;aspect-ratio:16/9}
 a.actor:hover b{color:var(--verde)}
 .orden-saga{padding-left:22px;margin:6px 0 18px}.orden-saga li{padding:3px 0}.orden-saga li.actual{color:var(--ambar);font-weight:700}
 .meta.orig{font-size:.75rem;margin:-2px 0 6px;font-style:italic}
+.comentarios{background:var(--card);border:1px solid var(--borde);border-radius:var(--r);padding:16px 20px;margin-top:24px}
+.comentarios h2{margin-top:0;color:var(--ambar);font-size:1.15rem}
 .foto-persona{width:180px;border-radius:10px;flex:none}
 code{background:#0b0f0d;padding:2px 6px;border-radius:6px;word-break:break-all}
